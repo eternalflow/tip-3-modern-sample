@@ -1,18 +1,15 @@
-import { Address, zeroAddress } from "locklift/.";
+import { Address, WalletTypes, zeroAddress } from "locklift/.";
 
 import BigNumber from "bignumber.js";
-const ME = new Address("0:d9d3e6f1871652f391ac7a883cf67856c8d3f78fd6723f85f9658fbff85fe994");
-
-// TODO: modify following scripts for new locklift
-// deploy tokenwallet: https://tip3-onboarding.gitbook.io/untitled/with-using-account/deploy-token-wallet
-// transfer tokens: https://tip3-onboarding.gitbook.io/untitled/with-using-account/transfer-tip-3-tokens
 
 
 async function main() {
-  const signer = (await locklift.keystore.getSigner("giver"))!;
+  const signer = (await locklift.keystore.getSigner("0"))!;
+  // take the address from step 0
+  const testUser = new Address("0:fff74d396dc0c9836a3084dbb3b136c7c0988af06c0d4028237b228137ded889");
 
   const initialSupplyTo = zeroAddress;
-  const rootOwner = ME;
+  const rootOwner = testUser;
   const name = "Onboarding Token";
   const symbol = "ONT421";
   const decimals = 6;
@@ -38,22 +35,22 @@ async function main() {
     contract: "TokenRoot",
     publicKey: signer.publicKey,
     initParams: {
-      deployer_: zeroAddress,
+      deployer_: zeroAddress.toString(),
       randomNonce_: locklift.utils.getRandomNonce(),
-      rootOwner_: rootOwner,
+      rootOwner_: rootOwner.toString(),
       name_: name,
       symbol_: symbol,
       decimals_: decimals,
       walletCode_: TokenWallet.code,
     },
     constructorParams: {
-      initialSupplyTo: initialSupplyTo,
+      initialSupplyTo: initialSupplyTo.toString(),
       initialSupply: new BigNumber(initialSupply).shiftedBy(decimals).toFixed(),
-      deployWalletValue: locklift.utils.toNano(1),
+      deployWalletValue: 0,
       mintDisabled: disableMint,
       burnByRootDisabled: disableBurnByRoot,
       burnPaused: pauseBurn,
-      remainingGasTo: ME,
+      remainingGasTo: testUser.toString(),
     },
     value: locklift.utils.toNano(2),
   });

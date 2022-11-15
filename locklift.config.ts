@@ -22,7 +22,7 @@ const config: LockliftConfig = {
 
     // Specify config for extarnal contracts as in exapmple
     externalContracts: {
-      "node_modules/@broxus/tip3/build": ['TokenRoot', 'TokenWallet']
+      "node_modules/@broxus/tip3/build": ['TokenRoot', 'TokenWallet', 'Wallet'],
     }
   },
   linker: {
@@ -60,7 +60,7 @@ const config: LockliftConfig = {
       keys: {
         // Use everdev to generate your phrase
         // !!! Never commit it in your repos !!!
-        // phrase: "action inject penalty envelope rabbit element slim tornado dinner pizza off blood",
+        phrase: "invest stable model kingdom news path rather potato measure kidney cushion medal",
         amount: 20,
       },
     },
@@ -116,7 +116,7 @@ const config: LockliftConfig = {
       keys: {
         // Use everdev to generate your phrase
         // !!! Never commit it in your repos !!!
-        // phrase: "invest stable model kingdom news path rather potato measure kidney cushion medal",
+        phrase: "invest stable model kingdom news path rather potato measure kidney cushion medal",
         amount: 20,
       },
     },
