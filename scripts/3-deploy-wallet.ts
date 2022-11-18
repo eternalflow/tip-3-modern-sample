@@ -1,7 +1,8 @@
-import { MsigAccount } from "everscale-standalone-client";
 import { Address, WalletTypes } from "locklift/.";
 
 async function main() {
+  // your browser extension wallet
+  const everWalletAddr = "0:d9d3e6f1871652f391ac7a883cf67856c8d3f78fd6723f85f9658fbff85fe994";
   // take it from step 0
   const testUserAddr = new Address("0:1fac4b3651a78d759956347d3383eba6377e0dc87d46b5ea68d5f103c5b9dfb7");
   // take it from step 1
@@ -23,31 +24,31 @@ async function main() {
     tokenRoot.methods
       .deployWallet({
         answerId: "0",
-        walletOwner: "0:d9d3e6f1871652f391ac7a883cf67856c8d3f78fd6723f85f9658fbff85fe994",
-        deployWalletValue: locklift.utils.toNano(1),
+        walletOwner: everWalletAddr,
+        deployWalletValue: locklift.utils.toNano(0.1),
       })
       .send({
         from: testUserAddr,
-        amount: locklift.utils.toNano(2),
+        amount: locklift.utils.toNano(1),
       }),
   );
 
-  const twAddr = await tokenRoot.methods
+  const {value0: twAddress} = await tokenRoot.methods
     .walletOf({
       answerId: 0,
-      walletOwner: "0:d9d3e6f1871652f391ac7a883cf67856c8d3f78fd6723f85f9658fbff85fe994",
+      walletOwner: everWalletAddr,
     })
     .call({ responsible: true });
 
-  console.log(`TIP3 Wallet deployed at: ${twAddr.value0.toString()}`);
+  console.log(`TIP3 Wallet deployed at: ${twAddress.toString()}`);
 
-  const tw = await locklift.factory.getDeployedContract("TokenWallet", twAddr.value0);
-  const root = await tw.methods
+  const tw = await locklift.factory.getDeployedContract("TokenWallet", twAddress);
+  const {value0: rootActual} = await tw.methods
     .root({
       answerId: 0,
     })
     .call({ responsible: true });
-  console.log("Root address in tw:", root.value0.toString());
+  console.log("Root address in tw:", rootActual.toString());
 }
 
 main()
