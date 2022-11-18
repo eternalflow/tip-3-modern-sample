@@ -13,9 +13,31 @@
 			]
 		},
 		{
+			"name": "wallet",
+			"inputs": [
+				{"name":"answerId","type":"uint32"}
+			],
+			"outputs": [
+				{"name":"value0","type":"address"}
+			]
+		},
+		{
+			"name": "onAcceptTokensTransfer",
+			"inputs": [
+				{"name":"tokenRoot","type":"address"},
+				{"name":"amount","type":"uint128"},
+				{"name":"sender","type":"address"},
+				{"name":"senderWallet","type":"address"},
+				{"name":"remainingGasTo","type":"address"},
+				{"name":"payload","type":"cell"}
+			],
+			"outputs": [
+			]
+		},
+		{
 			"name": "onWallet",
 			"inputs": [
-				{"name":"wallet","type":"address"}
+				{"name":"_wallet","type":"address"}
 			],
 			"outputs": [
 			]
@@ -34,6 +56,14 @@
 			],
 			"outputs": [
 				{"name":"_state","type":"uint256"}
+			]
+		},
+		{
+			"name": "wallet_",
+			"inputs": [
+			],
+			"outputs": [
+				{"name":"wallet_","type":"address"}
 			]
 		}
 	],
@@ -56,6 +86,14 @@
 			],
 			"outputs": [
 			]
+		},
+		{
+			"name": "TokensReceived",
+			"inputs": [
+				{"name":"amount","type":"uint128"}
+			],
+			"outputs": [
+			]
 		}
 	],
 	"fields": [
@@ -64,6 +102,7 @@
 		{"name":"_constructorFlag","type":"bool"},
 		{"name":"_nonce","type":"uint16"},
 		{"name":"state","type":"uint256"},
-		{"name":"root_","type":"address"}
+		{"name":"root_","type":"address"},
+		{"name":"wallet_","type":"address"}
 	]
 }

@@ -2,7 +2,7 @@ import { Address } from "locklift";
 
 async function main() {
   // take it from step 1
-  const tokenRootAddr = new Address("0:a6843d2039aab538fd264eaa346b687aef32318e2b837bf74b0c802229ab54e3");
+  const tokenRootAddr = new Address("0:0e35665824afee3e6c2839efe481a673c1b6a0851e701af399014d6a2d56048a");
   
   const signer = (await locklift.keystore.getSigner("0"))!;
   const { contract: sample, tx } = await locklift.factory.deployContract({
@@ -35,6 +35,8 @@ async function main() {
   }).call({ responsible: true });
   console.log('Root address in tw:', root.value0.toString());
  
+  const wallet = await sample.methods.wallet({answerId: 0}).call({responsible: true});
+  console.log("The gitcoin wallet address is", wallet.value0);
 }
 
 main()

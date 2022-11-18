@@ -2,29 +2,28 @@ import { Address, WalletTypes, zeroAddress } from "locklift/.";
 
 import BigNumber from "bignumber.js";
 
-
 async function main() {
   const signer = (await locklift.keystore.getSigner("0"))!;
   // take the address from step 0
-  const testUser = new Address("0:fff74d396dc0c9836a3084dbb3b136c7c0988af06c0d4028237b228137ded889");
+  const testUser = new Address("0:1fac4b3651a78d759956347d3383eba6377e0dc87d46b5ea68d5f103c5b9dfb7");
 
   const initialSupplyTo = zeroAddress;
   const rootOwner = testUser;
   const name = "Onboarding Token";
-  const symbol = "ONT421";
+  const symbol = "GITCOIN";
   const decimals = 6;
   const disableMint = false;
   const disableBurnByRoot = false;
   const pauseBurn = false;
 
   let initialSupply = "0";
-  
+
   /* 
     Returns compilation artifacts based on the .sol file name
       or name from value config.extarnalContracts[pathToLib].
   */
   const TokenWallet = locklift.factory.getContractArtifacts("TokenWallet");
-  
+
   /* 
     Deploy the TIP-3 Token Root contract.
     @params deployWalletValue: Along with the deployment of the root token,
