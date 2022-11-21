@@ -1,4 +1,5 @@
-import { Address, WalletTypes } from "locklift/.";
+import { Address, Contract, WalletTypes } from "locklift/.";
+import { FactorySource } from "../build/factorySource";
 
 async function main() {
   // your browser extension wallet

@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "test": "npx locklift test --network local"
+    "script": "npx locklift run -n main -s"
   },
   "author": "",
   "license": "ISC",
