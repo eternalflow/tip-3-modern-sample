@@ -2,7 +2,7 @@ import { Address } from "locklift";
 
 async function main() {
   // take it from step 1
-  const tokenRootAddr = new Address("0:4e13dbb1b50e081e79f98209596f828089049f42fc7b5c3ab60c7070fc89d067");
+  const tokenRootAddr = new Address("0:2edc90a1b1ef8628d771c6f1ed786810440364f42725578a331253673aebddca");
   
   const signer = (await locklift.keystore.getSigner("0"))!;
   const { contract: echo, tx } = await locklift.factory.deployContract({

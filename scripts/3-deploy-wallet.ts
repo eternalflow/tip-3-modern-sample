@@ -2,12 +2,12 @@ import { Address, Contract, WalletTypes } from "locklift/.";
 import { FactorySource } from "../build/factorySource";
 
 async function main() {
-  // your browser extension wallet
-  const everWalletAddr = new Address("0:d9d3e6f1871652f391ac7a883cf67856c8d3f78fd6723f85f9658fbff85fe994");
+  // put any address here
+  const testOwner = new Address("0:d9d3e6f1871652f391ac7a883cf67856c8d3f78fd6723f85f9658fbff85fe994");
   // take it from step 0
   const testUserAddr = new Address("0:1fac4b3651a78d759956347d3383eba6377e0dc87d46b5ea68d5f103c5b9dfb7");
   // take it from step 1
-  const tokenRootAddr = new Address("0:4e13dbb1b50e081e79f98209596f828089049f42fc7b5c3ab60c7070fc89d067");
+  const tokenRootAddr = new Address("0:2edc90a1b1ef8628d771c6f1ed786810440364f42725578a331253673aebddca");
 
   const signer = (await locklift.keystore.getSigner("1"))!;
 
@@ -25,7 +25,7 @@ async function main() {
     tokenRoot.methods
       .deployWallet({
         answerId: "0",
-        walletOwner: everWalletAddr,
+        walletOwner: testOwner,
         deployWalletValue: locklift.utils.toNano(0.1),
       })
       .send({
@@ -37,7 +37,7 @@ async function main() {
   const {value0: twAddress} = await tokenRoot.methods
     .walletOf({
       answerId: 0,
-      walletOwner: everWalletAddr,
+      walletOwner: testOwner,
     })
     .call({ responsible: true });
 

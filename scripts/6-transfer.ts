@@ -4,9 +4,9 @@ async function main() {
   // take it from step 0
   const testUserAddr = new Address("0:1fac4b3651a78d759956347d3383eba6377e0dc87d46b5ea68d5f103c5b9dfb7");
   // take it from step 1
-  const tokenRootAddr = new Address("0:4e13dbb1b50e081e79f98209596f828089049f42fc7b5c3ab60c7070fc89d067");
+  const tokenRootAddr = new Address("0:2edc90a1b1ef8628d771c6f1ed786810440364f42725578a331253673aebddca");
   // take it from step 2
-  const sampleAddr = new Address("0:58090aba293adaac34bc34cafc8e90c655bad6a40d6cd260d1914edadd200b36");
+  const sampleAddr = new Address("0:7a82ec4dcae96dd2b597fe40a162d494a14d9e2181784ec62bed2da99d493449");
 
   const signer = (await locklift.keystore.getSigner("1"))!;
 
