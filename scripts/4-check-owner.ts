@@ -2,7 +2,7 @@ import { Address, WalletTypes } from "locklift";
 
 async function main() {
   // take it from step 3
-  const tokenWalletAddr = new Address("0:91563ac5482cf282ec64dcdaa54de492d8d0dcd26500796f56b48133e64792b8");
+  const tokenWalletAddr = new Address("0:5348263b32835decaa3b9403510552a503cba33516017e6deee4afb7795e8169");
 
   const tw = locklift.factory.getDeployedContract("TokenWallet", tokenWalletAddr);
   const {value0: ownerAddr} = await tw.methods.owner({ answerId: 0 }).call({ responsible: true });

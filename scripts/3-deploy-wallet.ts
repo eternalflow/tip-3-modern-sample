@@ -3,11 +3,11 @@ import { FactorySource } from "../build/factorySource";
 
 async function main() {
   // your browser extension wallet
-  const everWalletAddr = "0:d9d3e6f1871652f391ac7a883cf67856c8d3f78fd6723f85f9658fbff85fe994";
+  const everWalletAddr = new Address("0:d9d3e6f1871652f391ac7a883cf67856c8d3f78fd6723f85f9658fbff85fe994");
   // take it from step 0
   const testUserAddr = new Address("0:1fac4b3651a78d759956347d3383eba6377e0dc87d46b5ea68d5f103c5b9dfb7");
   // take it from step 1
-  const tokenRootAddr = new Address("0:0e35665824afee3e6c2839efe481a673c1b6a0851e701af399014d6a2d56048a");
+  const tokenRootAddr = new Address("0:4e13dbb1b50e081e79f98209596f828089049f42fc7b5c3ab60c7070fc89d067");
 
   const signer = (await locklift.keystore.getSigner("1"))!;
 

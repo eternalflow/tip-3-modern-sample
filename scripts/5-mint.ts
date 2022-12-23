@@ -5,9 +5,9 @@ async function main() {
   // take it from step 0
   const testUserAddr = new Address("0:1fac4b3651a78d759956347d3383eba6377e0dc87d46b5ea68d5f103c5b9dfb7");
   // take it from step 1
-  const tokenRootAddr = new Address("0:0e35665824afee3e6c2839efe481a673c1b6a0851e701af399014d6a2d56048a");
+  const tokenRootAddr = new Address("0:4e13dbb1b50e081e79f98209596f828089049f42fc7b5c3ab60c7070fc89d067");
   // take it from step 3
-  const tokenWalletAddr = new Address("0:91563ac5482cf282ec64dcdaa54de492d8d0dcd26500796f56b48133e64792b8");
+  const tokenWalletAddr = new Address("0:5348263b32835decaa3b9403510552a503cba33516017e6deee4afb7795e8169");
   const signer = (await locklift.keystore.getSigner("1"))!;
 
   await locklift.factory.accounts.addExistingAccount({

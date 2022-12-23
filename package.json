@@ -14,7 +14,6 @@
     "@types/mocha": "^10.0.0",
     "@types/node": "^18.11.9",
     "chai": "^4.3.6",
-
     "locklift": "^2.4.4",
     "prettier": "^2.7.1",
     "ts-mocha": "^10.0.0",

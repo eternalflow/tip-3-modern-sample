@@ -2,7 +2,7 @@ import { Address } from "locklift";
 
 async function main() {
   // take it from step 1
-  const tokenRootAddr = new Address("0:0e35665824afee3e6c2839efe481a673c1b6a0851e701af399014d6a2d56048a");
+  const tokenRootAddr = new Address("0:4e13dbb1b50e081e79f98209596f828089049f42fc7b5c3ab60c7070fc89d067");
   
   const signer = (await locklift.keystore.getSigner("0"))!;
   const { contract: echo, tx } = await locklift.factory.deployContract({
@@ -12,7 +12,7 @@ async function main() {
       _nonce: locklift.utils.getRandomNonce(),
     },
     constructorParams: {
-      root: tokenRootAddr.toString()
+      root: tokenRootAddr
     },
     value: locklift.utils.toNano(2),
   });
